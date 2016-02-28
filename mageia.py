@@ -15,3 +15,7 @@ def executeRemove(pkg_name):
 
 def executeFindByName(name):
     shell.executeShellCommand('urpmq --fuzzy ' + name)
+
+
+def executeFindByFile(file_name):
+    shell.executeShellCommand('urpmf ' + file_name)    
