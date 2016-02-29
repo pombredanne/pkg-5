@@ -62,7 +62,8 @@ interface_commands = [
     'find-by-file',
     'find-by-info',
     'info',
-    'fix'
+    'fix',
+    'localize'
 ]
 
 interface_commands_not_implemented = []
