@@ -2,21 +2,21 @@ import shell
 
 
 def executeUpgrade():
-    shell.executeShellCommand('pkg upgrade')
+    shell.executeCommand('pkg upgrade')
 
 
 def executeInstall(pkg_name):
-    shell.executeShellCommand('pkg install ' + pkg_name)
+    shell.executeCommand('pkg install ' + pkg_name)
 
 
 def executeRemove(pkg_name):
-    shell.executeShellCommand('pkg remove ' + pkg_name)
-    shell.executeShellCommand('pkg autoremove')
+    shell.executeCommand('pkg remove ' + pkg_name)
+    shell.executeCommand('pkg autoremove')
 
 
 def executeFindByName(name):
-    shell.executeShellCommand('pkg search ' + name)
+    shell.executeCommand('pkg search ' + name)
 
 
 def executeFindByFile(file_name):
-    shell.executeShellCommand('pkg search ' + file_name)
+    shell.executeCommand('pkg search ' + file_name)
