@@ -18,4 +18,8 @@ def executeFindByName(name):
 
 
 def executeFindByFile(file_name):
-    shell.executeShellCommand('urpmf ' + file_name)    
+    shell.executeShellCommand('urpmf ' + file_name)
+
+
+def executeCheck():
+    shell.executeShellCommand('rpm --verify -a')

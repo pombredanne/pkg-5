@@ -20,3 +20,8 @@ def executeFindByName(name):
 
 def executeFindByFile(file_name):
     shell.executeShellCommand('apt-file search ' + file_name)
+
+
+def executeCheck():
+    shell.executeShellCommand('apt-get check')
+    shell.executeShellCommand('debsums | grep \'﻿ OK\'')

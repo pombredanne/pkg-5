@@ -1,4 +1,4 @@
-import os
+from subprocess import Popen, PIPE
 
 
 def executeShellCommand(command_line, is_log = False) -> object:
@@ -7,12 +7,16 @@ def executeShellCommand(command_line, is_log = False) -> object:
     if is_log:
         print("exec: " + command_line)
 
-    result_pipe = os.popen(command_line)
-    result_     = result_pipe.readlines()
+    result_pipe = Popen(command_line, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
+    result_     = result_pipe.stdout.read().decode("utf-8")
+    error       = result_pipe.stderr.read().decode("utf-8")
     result      = []
 
     for line in result_:
         # noinspection PyTypeChecker
         result.append(line.replace("\n", ""))
+
+    if error != '':
+        raise BaseException(error)
 
     return result
