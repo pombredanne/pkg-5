@@ -60,6 +60,8 @@ interface_commands = [
     'check',
     'find-by-name',
     'find-by-file',
+    'find-by-info',
+    'info',
     'fix'
 ]
 
