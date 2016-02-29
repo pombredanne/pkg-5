@@ -26,3 +26,7 @@ def executeFindByFile(file_name):
 def executeCheck():
     shell.executeShellCommand('apt-get check')
     shell.executeShellCommand('debsums | grep \'﻿ OK\'')
+
+
+def executeContent(pkg_name):
+    shell.executeShellCommand('apt-file show ' + pkg_name)

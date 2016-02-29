@@ -23,3 +23,7 @@ def executeFindByFile(file_name):
 
 def executeCheck():
     shell.executeShellCommand('rpm --verify -a')
+
+
+def executeContent(pkg_name):
+    shell.executeShellCommand('rpm -ql ' + pkg_name)

@@ -63,6 +63,7 @@ interface_commands = [
     'find-by-info',
     'info',
     'fix',
+    'content',
     'localize'
 ]
 

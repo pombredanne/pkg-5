@@ -15,3 +15,7 @@ def executeRemove(pkg_name):
 
 def executeFindByName(name):
     shell.executeShellCommand('brew search ' + name)
+
+
+def executeContent(pkg_name):
+    shell.executeShellCommand('brew list ' + pkg_name)
