@@ -7,6 +7,10 @@ import re
 
 
 # -----load pkg by platform
+# define variables:
+#       platform_name
+#       help_text
+#       command_dictionary
 
 
 def splitByUpCase(src):
@@ -51,6 +55,9 @@ help_text = "pkg\n    platform\n" + commands
 # -----
 
 
+# ----- command line
+
+
 def executeCommand(command_dictionary, command, argument = None):
     if command == 'platform' and argument is None:
         print('platform: ' + platform_name)
@@ -78,3 +85,6 @@ if len(sys.argv) == 2:
 
 if len(sys.argv) == 3:
     executeCommand(command_dictionary, sys.argv[1], sys.argv[2])
+
+
+# -----
