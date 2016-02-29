@@ -40,38 +40,45 @@ for function_name in dir_:
             function_name
 
 commands = ''
-for command in command_dictionary.keys():
-    params = ''
-    func_code = ''
+dictionary_commands = list(command_dictionary.keys())
+dictionary_commands.sort()
+for command in dictionary_commands:
+    params      = ''
+    func_code   = ''
     exec('func_code = pkg.' + command_dictionary[command] + '.__code__')
 
     for param in func_code.co_varnames:
-        params = params + param
+        params += param
 
     commands = commands + "    " + command + ' ' + params + "\n"
-help_text = "pkg\n    platform\n" + commands
+help_text = "pkg command [argument]\n\ncommands:\n    platform\n" + commands
+
+interface_commands = [
+    'upgrade',
+    'install',
+    'remove',
+    'check',
+    'find-by-name',
+    'find-by-file',
+    'fix'
+]
+
+interface_commands_not_implemented = []
+for interface_command in interface_commands:
+    if interface_command not in dictionary_commands:
+        interface_commands_not_implemented.append(interface_command)
+interface_commands_not_implemented.sort()
+
+if len(interface_commands_not_implemented) > 0:
+    help_text += "\nnot implemented commands:\n"
+    for interface_command in interface_commands_not_implemented:
+        help_text += "    " + interface_command + "\n"
 
 
 # -----
 
 
 # ----- command line
-
-
-def executeCommand(command_dictionary, command, argument = None):
-    if command == 'platform' and argument is None:
-        print('platform: ' + platform_name)
-        exit()
-    else:
-        if command not in command_dictionary.keys():
-            print("unknown command: " + command + "\n")
-            print(help_text)
-            exit(1)
-
-        if argument is None:
-            exec('pkg.' + command_dictionary[command] + '()')
-        else:
-            exec('pkg.' + command_dictionary[command] + '(argument)')
 
 
 if len(sys.argv) < 2:
