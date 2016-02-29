@@ -77,14 +77,19 @@ def executeCommand(command_dictionary, command, argument = None):
 if len(sys.argv) < 2:
     print(help_text)
     exit(0)
-
-
-if len(sys.argv) == 2:
-    executeCommand(command_dictionary, sys.argv[1])
-
-
-if len(sys.argv) == 3:
-    executeCommand(command_dictionary, sys.argv[1], sys.argv[2])
+else:
+    if len(sys.argv) == 2 and sys.argv[1] == 'platform':
+        print('platform: ' + platform_name)
+        exit()
+    else:
+        try:
+            exec('pkg.' + command_dictionary[sys.argv[1]] + '(*sys.argv[2:])')
+        except TypeError:
+            print(help_text)
+            exit(1)
+        except BaseException as e:
+            print(e)
+            exit(1)
 
 
 # -----
