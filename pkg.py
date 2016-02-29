@@ -24,6 +24,11 @@ if platform_name == '':
 exec('import ' + platform_name + ' as pkg')
 
 
+def showPlatform():
+    print('platform: ' + platform_name)
+    exit(0)
+
+
 dict_command_function   = dict()
 dir_                    = dir(pkg)
 for function_name in dir_:
@@ -52,7 +57,8 @@ if len(sys.argv) <  2:
 
 command = sys.argv[1]
 
-if command not in dict_command_function.keys():
+
+if command != 'platform'  and  command not in dict_command_function.keys():
     print("unknown command: " + command + "\n")
     print(help)
     exit(1)
@@ -60,9 +66,7 @@ if command not in dict_command_function.keys():
 
 if len(sys.argv) == 2:
     if command == 'platform':
-        print('platform: ' + platform_name)
-        exit()
-
+        showPlatform()
     exec('pkg.' + dict_command_function[command] + '()')
     
 
