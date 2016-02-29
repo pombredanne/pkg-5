@@ -2,7 +2,7 @@ from subprocess import Popen, PIPE
 
 
 def executeShellCommand(command_line, is_log = False) -> object:
-    command_line = 'PATH=$PATH:/usr/local/bin;' + command_line.replace("$", "\\$") + ' > /dev/tty'
+    command_line = 'PATH=$PATH:/usr/local/bin;' + command_line.replace("$", "\\$") + ' > /dev/tty 0> /dev/tty'
 
     if is_log:
         print("exec: " + command_line)

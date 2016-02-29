@@ -12,6 +12,7 @@ def executeInstall(pkg_name):
 
 def executeRemove(pkg_name):
     shell.executeShellCommand('apt-get remove ' + pkg_name)
+    shell.executeShellCommand('apt-get autoremove')
 
 
 def executeFindByName(name):
