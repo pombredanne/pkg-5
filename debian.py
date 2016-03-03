@@ -19,8 +19,16 @@ def executeFindByName(name):
     shell.executeCommand('apt-cache search --names-only ' + name)
 
 
+def executeFindByInfo(info_string):
+    shell.executeCommand('apt-cache search ' + info_string)
+
+
 def executeFindByFile(file_name):
     shell.executeCommand('apt-file search ' + file_name)
+
+
+def executeInfo(pkg_name):
+    shell.executeCommand('apt-cache show ' + pkg_name)
 
 
 def executeCheck():
@@ -30,3 +38,9 @@ def executeCheck():
 
 def executeContent(pkg_name):
     shell.executeCommand('apt-file show ' + pkg_name)
+
+
+#def executeLocalize(language_name):
+#    executeInstall('language-selector-common')
+#    shell.executeCommand('check-language-support --language=' + language_name)
+    
