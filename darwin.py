@@ -17,5 +17,5 @@ def executeFindByName(name):
     shell.executeCommand('brew search ' + name)
 
 
-def executeContent(pkg_name):
-    shell.executeCommand('brew list ' + pkg_name)
+def executeInfo(pkg_name):
+    shell.executeCommand('brew info ' + pkg_name)

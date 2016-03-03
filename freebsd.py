@@ -14,9 +14,5 @@ def executeRemove(pkg_name):
     shell.executeCommand('pkg autoremove')
 
 
-def executeInfo(pkg_name):
-    shell.executeCommand('pkg info ' + pkg_name)
-
-
 def executeFindByName(name):
     shell.executeCommand('pkg search ' + name)
