@@ -33,11 +33,16 @@ def executeInfo(pkg_name):
 
 def executeCheck():
     shell.executeCommand('apt-get check')
-    shell.executeCommand('debsums | grep \'﻿ OK\'')
+    shell.executeCommand('debsums | grep -v " OK"')
 
 
 def executeContent(pkg_name):
     shell.executeCommand('apt-file show ' + pkg_name)
+
+
+def executeFix():
+    pass
+    # apt-get install --reinstall packagename
 
 
 #def executeLocalize(language_name):
