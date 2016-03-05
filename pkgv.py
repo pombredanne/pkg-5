@@ -94,6 +94,9 @@ else:
         exit()
     else:
         try:
+            if sys.argv[1] not in command_dictionary:
+                print(help_text)
+                exit(1)
             exec('pkg.' + command_dictionary[sys.argv[1]] + '(*sys.argv[2:])')
         except TypeError:
             print(help_text)

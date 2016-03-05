@@ -40,8 +40,7 @@ def executeContent(pkg_name):
     shell.executeCommand('apt-file show ' + pkg_name)
 
 
-def executeFix():
-    pass
+# def executeFix():
     # apt-get install --reinstall packagename
 
 
