@@ -27,3 +27,7 @@ def executeCheck():
 
 def executeContent(pkg_name):
     shell.executeCommand('rpm -ql ' + pkg_name)
+
+
+def executeInfo(pkg_name):
+    shell.executeCommand('urpmq -i ' + pkg_name)
