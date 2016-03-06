@@ -51,7 +51,7 @@ for command in dictionary_commands:
         params += param
 
     commands = commands + "    " + command + ' ' + params + "\n"
-help_text = "pkg command [argument]\n\ncommands:\n    platform\n" + commands
+help_text = sys.argv[0] + " command [argument]\n\ncommands:\n    platform\n" + commands
 
 interface_commands = [
     'upgrade',
