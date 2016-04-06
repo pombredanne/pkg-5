@@ -2,6 +2,7 @@ import shell
 
 
 def executeUpgrade():
+    shell.executeCommand('brew update')
     shell.executeCommand('brew upgrade')
 
 
